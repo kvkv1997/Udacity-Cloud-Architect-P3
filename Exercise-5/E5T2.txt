@@ -1,0 +1,36 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+    AWS Config Rules
+    AWS CloudFormation Guard
+
+
+### Example vulnerability
+
+Hardcoded AWS Access Keys in Serverless Framework:
+
+Example Vulnerability: In a Serverless Framework configuration file, AWS access keys are hardcoded instead of using IAM roles or environment variables. This is a significant security risk, as the keys can be exposed accidentally and lead to unauthorized access.
+
+Open Security Groups in AWS CloudFormation:
+
+Example Vulnerability: A CloudFormation template creates an EC2 instance with a security group that allows all inbound traffic (0.0.0.0/0) on all ports. This leaves the instance vulnerable to attacks.
+
+
+##Scan AMI’s or containers for OS vulnerabilities
+
+Ansible
+
+### Example vulnerability
+
+- SSH root access with password logon
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+
+- AWS Config
+- AWS Inspector
+- AWS GuardDuty
+
+### Example vulnerability
+- An IAM role assigned a policy that allows admin access
+- s3-bucket-server-side-encryption
+- UnauthorizedAccess:EC2/SSHBruteForce

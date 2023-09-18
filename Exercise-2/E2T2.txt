@@ -1,0 +1,27 @@
+1. IAM policy is allowing full access to resources:
+
+Related to Code: This vulnerability may be related to the code if the IAM policies associated with the code's execution role or user permissions are overly permissive. The code might be unintentionally granted full access to AWS resources.
+
+Remediation: Review and adjust IAM policies for the code execution roles and users to follow the principle of least privilege. Specify only the necessary permissions required for the code to function correctly.
+
+2. Account is used maybe was not the root account:
+
+Related to Code: This vulnerability may not be directly related to code but rather to AWS account management practices. However, if the code interacts with AWS resources using root account credentials, it could pose a security risk.
+
+Remediation: Enforce the use of IAM users or roles for code execution and avoid using root account credentials. Ensure MFA (Multi-Factor Authentication) is enabled for IAM users and roles.
+
+3. CloudTrail Trail was not specified cases:
+
+Related to Code: This vulnerability is typically related to AWS account configuration rather than code. However, the code might benefit from CloudTrail logs for auditing and monitoring.
+Remediation: Configure a CloudTrail trail to capture logs for AWS API activity. While not directly related to the code, access to these logs may be useful for monitoring and auditing code behavior.
+
+4. Load balancer:
+
+Related to Code: This is related to the configuration of the AWS Application Load Balancer (ALB) rather than the code. However, the code might need to ensure that it uses HTTPS for communication to match the ALB configuration.
+
+Remediation: Configure the ALB to redirect HTTP requests to HTTPS. Ensure that the code communicates over HTTPS.
+
+5. VPC Security Groups allow all ingress and egress traffic which violates the AWS recommendation:
+
+Related to Code: This vulnerability may be related to code if the code interacts with AWS resources within the VPC using Security Groups. Overly permissive Security Groups can expose resources to unnecessary risks.
+Remediation: Update the Security Group rules to allow only necessary ingress and egress traffic. The code should follow the principle of least privilege when interacting with AWS resources in the VPC.
